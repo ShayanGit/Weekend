@@ -1,12 +1,11 @@
 <?php
 
-namespace Weekend\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use Weekend\User;
+use App\User;
 use Validator;
-use Weekend\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -49,13 +48,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|max:100',
-            'password' => 'required|max:255|min:6|confirmed',
-            'name' => 'required|max:100',
-            'family' => 'required|max:100',
+            'user_id' => 'required|max:255',
+            'password' => 'required|min:6|confirmed',
+            'name' => 'required|max:255',
+            'family' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'telegram_id' => 'required',
-            ''
+            'telegram_id' => 'max:255',
+            'telephone' => 'max:255',
         ]);
     }
 
@@ -68,14 +67,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'user_id' => $data['user_id'],
             'password' => bcrypt($data['password']),
+            'name' => $data['name'],
+            'family' => $data['family'],
+            'email' => $data['email'],
+            'telegram_id' => $data['telegram_id'],
+            'telephone' => $data['telephone'],
+            'whatsapp_id' => NULL,
+            'verified' => 0,
         ]);
-    }
-
-    protected function guard()
-    {
-        return Auth::guard('guard-name');
     }
 }

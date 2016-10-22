@@ -1,6 +1,6 @@
 <?php
 
-namespace Weekend;
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'user_id','password','name','family','email','telegram_id','whatsapp_id','telephone','verified'
     ];
 
     /**
@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $primaryKey = 'user_id';
+    public $incrementing = false;
+    public $timestamps = false;
+
+
 }

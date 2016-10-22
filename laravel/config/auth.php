@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Weekend\User::class,
+            'model' => App\User::class,
         ],
 
         // 'users' => [

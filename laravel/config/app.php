@@ -172,12 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Weekend\Providers\AppServiceProvider::class,
-        Weekend\Providers\AuthServiceProvider::class,
-        // Weekend\Providers\BroadcastServiceProvider::class,
-        Weekend\Providers\EventServiceProvider::class,
-        Weekend\Providers\RouteServiceProvider::class,
-        Vinkla\Pusher\PusherServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
